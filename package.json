@@ -1,0 +1,32 @@
+{
+  "name": "pkg-test",
+  "version": "1.0.0",
+  "description": "pkg 打包测试",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "pkg": "pkg app/index.js -c config.pkg.json -C GZip --no-bytecode --public-packages \"*\" --public",
+    "postinstall": "patch-package",
+    "compile": "rimraf ./app && tsc && tsc-alias",
+    "pkg-edit": "node ./pkg-edit.mjs",
+    "build": "npm run compile && rimraf ./dist && npm run pkg && npm run pkg-edit"
+  },
+  "keywords": [],
+  "author": "空巷一人",
+  "license": "MIT",
+  "devDependencies": {
+    "@tsconfig/node16": "^16.1.1",
+    "@types/express": "^4.17.19",
+    "@types/node": "^16.18.58",
+    "patch-package": "^8.0.0",
+    "pkg": "^5.8.1",
+    "resedit": "^2.0.0",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.8",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.5.1"
+  }
+}

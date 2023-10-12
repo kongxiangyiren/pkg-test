@@ -1,0 +1,23 @@
+{
+    "extends": "@tsconfig/node16/tsconfig.json",
+    "compilerOptions": {
+        "declaration": false,
+        "outDir": "app",
+        "types": [
+            "node"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        }
+    },
+    "ts-node": {
+        "transpileOnly": true,
+        "files": true,
+        "require": [
+            "tsconfig-paths/register"
+        ]
+    },
+}
