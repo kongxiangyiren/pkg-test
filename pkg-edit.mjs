@@ -55,7 +55,7 @@ ResEdit.Resource.IconGroupEntry.replaceIconsForResource(
 const viList = ResEdit.Resource.VersionInfo.fromEntries(res.entries);
 const vi = viList[0];
 
-const versionList = version.split('.');
+const versionList = (version ?? '0.0.0').split('.');
 // 修改文件版本号
 vi.setFileVersion(versionList[0], versionList[1], versionList[2] ?? '0');
 
@@ -75,16 +75,16 @@ vi.setStringValues(
     // 产品描述
     FileDescription: description ?? '',
     // 产品名称
-    ProductName: name ?? '',
+    ProductName: name ?? 'node',
     // 公司名称
     CompanyName: author ?? '',
     // 版权信息
     LegalCopyright:
       copyright ?? `Copyright © ${new Date().getFullYear()} ${author ?? ''}`,
     // 产品版本
-    ProductVersion: version,
+    ProductVersion: version ?? '0.0.0',
     // 原始文件名
-    OriginalFilename: name + '.exe'
+    OriginalFilename: (name ?? 'node') + '.exe'
   }
 );
 vi.outputToResourceEntries(res.entries);
