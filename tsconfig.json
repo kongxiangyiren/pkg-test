@@ -13,6 +13,12 @@
             ]
         }
     },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "./pkg-edit.mts"
+    ],
     "ts-node": {
         "transpileOnly": true,
         "files": true,

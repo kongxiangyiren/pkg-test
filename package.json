@@ -7,7 +7,7 @@
     "pkg": "pkg app/index.js -c config.pkg.json -C GZip --no-bytecode --public-packages \"*\" --public",
     "postinstall": "patch-package",
     "compile": "rimraf ./app && tsc && tsc-alias",
-    "pkg-edit": "node ./pkg-edit.mjs",
+    "pkg-edit": "ts-node --esm ./pkg-edit.mts",
     "build": "npm run compile && rimraf ./dist && npm run pkg && npm run pkg-edit"
   },
   "keywords": [],
