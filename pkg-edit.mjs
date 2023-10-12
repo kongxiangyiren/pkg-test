@@ -1,8 +1,8 @@
 // 先 npm i resedit -D
-// 生成ico: ico 最大为 184x184 ，否则会报错
+// 生成ico: ico 有大小限制 如果报错 请压缩源文件 (未详细测试，大概超过200kb会报错，具体请自行测试)
 // ffmpeg下载地址：https://registry.npmmirror.com/-/binary/ffmpeg-static/b6.0/ffmpeg-win32-x64
 // 重命名为ffmpeg.exe
-// ffmpeg.exe -i ./favicon.png -s 184x184 -filter_complex "scale=sws_flags=lanczos"  -r 1 ./favicon.ico
+// ffmpeg.exe -i ./favicon.png -s 256x256 -filter_complex "scale=sws_flags=lanczos"  -r 1 ./favicon.ico
 import * as PELibrary from 'pe-library';
 import * as ResEdit from 'resedit';
 import { join, dirname } from 'path';
