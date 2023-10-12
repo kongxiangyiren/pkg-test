@@ -60,13 +60,9 @@ const versionList = (version ?? '0.0.0').split('.');
 vi.setFileVersion(versionList[0], versionList[1], versionList[2] ?? '0');
 
 // 删除自带的lang
-vi.removeAllStringValues(
-  {
-    lang: 1033,
-    codepage: 1200
-  },
-  true
-);
+for (const item of vi.getAvailableLanguages()) {
+  vi.removeAllStringValues(item, true);
+}
 
 // 修改文件信息  (‘lang：0x0804’的意思是‘zh-CN’, 'codepage: 1200' 设置默认代码页) https://learn.microsoft.com/zh-cn/openspecs/windows_protocols/ms-lcid/a9eac961-e77d-41a6-90a5-ce1a8b0cdb9c?redirectedfrom=MSDN
 vi.setStringValues(
